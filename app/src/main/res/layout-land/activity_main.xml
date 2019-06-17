@@ -244,4 +244,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/result" />
 
+    <Button
+        android:id="@+id/buttonac"
+        android:layout_width="89dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="12dp"
+        android:text="AC"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDivide"
+        app:layout_constraintStart_toEndOf="@+id/buttonDivide" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
