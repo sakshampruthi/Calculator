@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private Double operand2 = null;
     private String pendingOperation = "=";
 
-    private static final String Pendingoperation="";
-    private static final String Operand1="";
+    private static final String Pendingoperation=null;
+    private static final String Operand1=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +43,28 @@ public class MainActivity extends AppCompatActivity {
         Button button8 = findViewById(R.id.button8);
         Button button9 = findViewById(R.id.button9);
         Button buttonac = findViewById(R.id.buttonac);
+        Button buttonneg = findViewById(R.id.buttonneg);
 
+        Button buttonpercent = findViewById(R.id.buttonpercent);
         Button buttonDot = findViewById(R.id.buttonDot);
         Button buttonEquals = findViewById(R.id.buttonEquals);
         Button buttonDivide = findViewById(R.id.buttonDivide);
-        Button buttonMulltiply = findViewById(R.id.buttonMultiply);
+        Button buttonMultiply = findViewById(R.id.buttonMultiply);
         Button buttonMinus = findViewById(R.id.buttonMinus);
         Button buttonPlus = findViewById(R.id.buttonAdd);
 
         View.OnClickListener remove = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Button b = (Button) view;
-                newnum.append("");
-                result.append("");
-                displayOperation.append("");
+                newnum.setText("");
+                result.setText("");
+                displayOperation.setText("");
+                operand1 = null;
+                operand2 = null;
+
             }
         };
+
         buttonac.setOnClickListener(remove);
 
         View.OnClickListener listener = new View.OnClickListener() { //onclicklistener for
@@ -69,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 newnum.append(b.getText().toString()); //adds the clicked num to newnum
             }
         };
+
         button0.setOnClickListener(listener);
         button1.setOnClickListener(listener);
         button2.setOnClickListener(listener);
@@ -101,25 +107,50 @@ public class MainActivity extends AppCompatActivity {
         buttonEquals.setOnClickListener(oplistener);
         buttonDivide.setOnClickListener(oplistener);
         buttonMinus.setOnClickListener(oplistener);
-        buttonMulltiply.setOnClickListener(oplistener);
+        buttonMultiply.setOnClickListener(oplistener);
         buttonPlus.setOnClickListener(oplistener);
+
+        buttonneg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String value = newnum.getText().toString();
+                if(value.length() == 0) {
+                    newnum.setText("-");
+                } else {
+                    try {
+                        Double doubleValue = Double.valueOf(value);
+                        doubleValue *= -1;
+                        newnum.setText(doubleValue.toString());
+                    } catch(NumberFormatException e) {
+                        // newNumber was "-" or ".", so clear it
+                        newnum.setText("");
+                    }
+                }
+
+            }
+        });
+
+
+        buttonpercent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String value = newnum.getText().toString();
+                    try {
+                        Double doubleValue = Double.valueOf(value);
+                        doubleValue /= 100;
+                        newnum.setText(doubleValue.toString());
+                    } catch(NumberFormatException e) {
+                        // newNumber was "-" or ".", so clear it
+                        newnum.setText("");
+                    }
+                }
+
+            });
+
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(Pendingoperation,pendingOperation);
-        if(operand1!=null)
-            outState.putDouble(Operand1,operand1);
-        super.onSaveInstanceState(outState);
-    }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        pendingOperation = savedInstanceState.getString(Pendingoperation);
-        operand1=savedInstanceState.getDouble(Operand1);
-        displayOperation.setText(pendingOperation);
-    }
+
 
     private void performOperation(Double value, String op) {
         if (null == operand1) {
@@ -150,10 +181,26 @@ public class MainActivity extends AppCompatActivity {
                 case "+":
                     operand1 += operand2;
                     break;
+
             }
         }
         result.setText(operand1.toString());
         newnum.setText("");
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(Pendingoperation,pendingOperation);
+        if(operand1!=null)
+            outState.putDouble(Operand1,operand1);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        pendingOperation = savedInstanceState.getString(Pendingoperation);
+        operand1=savedInstanceState.getDouble(Operand1);
+        displayOperation.setText(pendingOperation);
     }
 }
 
