@@ -165,14 +165,14 @@ public class MainActivity extends AppCompatActivity {
                 case "=":
                     operand1 = operand2;
                     break;
-                case "/":
+                case "÷":
                     if (operand2 == 0) {
                         operand1 = 0.0;
                     } else {
                         operand1 /= operand2;
                     }
                     break;
-                case "*":
+                case "x":
                     operand1 *= operand2;
                     break;
                 case "-":

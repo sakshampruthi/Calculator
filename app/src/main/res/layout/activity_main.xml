@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
     tools:context=".MainActivity">
@@ -13,7 +13,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:focusable="false"
@@ -23,24 +23,27 @@
         android:textColor="#FFFFFF"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintHorizontal_bias="0.868"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
         android:id="@+id/button0"
         android:layout_width="167dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/buttonshape"
         android:minWidth="80dp"
         android:minHeight="80dp"
         android:text="0"
         android:textAlignment="inherit"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button1"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        app:layout_constraintVertical_bias="0.012" />
 
     <Button
         android:id="@+id/button1"
@@ -52,7 +55,7 @@
         android:minHeight="80dp"
         android:text="1"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
@@ -67,7 +70,7 @@
         android:minHeight="80dp"
         android:text="2"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button1"
         app:layout_constraintEnd_toStartOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button1" />
@@ -82,7 +85,7 @@
         android:minHeight="80dp"
         android:text="3"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button2"
         app:layout_constraintStart_toEndOf="@+id/button2" />
 
@@ -96,7 +99,7 @@
         android:minHeight="80dp"
         android:text="4"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/button7"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
@@ -110,7 +113,7 @@
         android:minHeight="80dp"
         android:text="5"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button4"
         app:layout_constraintStart_toEndOf="@+id/button4" />
 
@@ -125,7 +128,7 @@
         android:minHeight="80dp"
         android:text="6"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
 
@@ -139,7 +142,7 @@
         android:minHeight="80dp"
         android:text="7"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="@+id/buttonac"
         app:layout_constraintTop_toBottomOf="@+id/buttonac" />
 
@@ -153,7 +156,7 @@
         android:minHeight="80dp"
         android:text="8"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button7"
         app:layout_constraintStart_toEndOf="@+id/button7" />
 
@@ -167,7 +170,7 @@
         android:minHeight="80dp"
         android:text="9"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button8"
         app:layout_constraintStart_toEndOf="@+id/button8" />
 
@@ -176,15 +179,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/buttonshapecolor"
         android:minWidth="80dp"
         android:minHeight="80dp"
-        android:text="/"
+        android:text="÷"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonpercent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button9" />
 
@@ -197,7 +200,7 @@
         android:background="@drawable/buttonshapecolor"
         android:minWidth="80dp"
         android:minHeight="80dp"
-        android:text="*"
+        android:text="x"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button9"
@@ -216,7 +219,7 @@
         android:minHeight="80dp"
         android:text="+"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="@+id/buttonMinus"
         app:layout_constraintHorizontal_bias="0.0"
@@ -233,7 +236,7 @@
         android:minHeight="80dp"
         android:text="-"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="@+id/buttonMultiply"
         app:layout_constraintHorizontal_bias="0.0"
@@ -249,7 +252,7 @@
         android:minHeight="80dp"
         android:text="."
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button0"
         app:layout_constraintStart_toEndOf="@+id/button0" />
 
@@ -258,13 +261,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/buttonshapecolor"
         android:minWidth="80dp"
         android:minHeight="80dp"
         android:text="="
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonDot"
+        app:layout_constraintEnd_toEndOf="@+id/buttonAdd"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonDot" />
 
     <TextView
@@ -273,7 +279,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newnum"
         app:layout_constraintEnd_toStartOf="@+id/newnum" />
 
@@ -299,13 +305,13 @@
         android:id="@+id/buttonac"
         android:layout_width="79dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/buttonshapetop"
         android:text="AC "
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/newnum" />
 
     <Button
@@ -318,7 +324,7 @@
         android:background="@drawable/buttonshapetop"
         android:text="+/-"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintStart_toEndOf="@+id/buttonac"
         app:layout_constraintTop_toTopOf="@+id/buttonpercent"
@@ -332,8 +338,40 @@
         android:background="@drawable/buttonshapetop"
         android:text="%"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="25sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonac"
         app:layout_constraintStart_toEndOf="@+id/buttonneg" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="1.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="1.0"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
