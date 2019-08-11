@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void performOperation(Double value, String op) {
+        boolean error=false;
         if (null == operand1) {
             operand1 = value;
         } else {
@@ -167,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "÷":
                     if (operand2 == 0) {
-                        operand1 = 0.0;
+                        error=true;
                     } else {
                         operand1 /= operand2;
                     }
@@ -184,7 +185,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-        result.setText(operand1.toString());
+        if (!error) {
+            result.setText(operand1.toString());
+        }
+        else {
+            result.setText("ERROR");
+            operand1=0.0;
+        }
         newnum.setText("");
     }
     @Override
