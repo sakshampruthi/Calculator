@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMultiply = findViewById(R.id.buttonMultiply);
         Button buttonMinus = findViewById(R.id.buttonMinus);
         Button buttonPlus = findViewById(R.id.buttonAdd);
+        newnum.setEnabled(false);
+        result.setEnabled(false);
 
         View.OnClickListener remove = new View.OnClickListener() {
             @Override
@@ -168,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "÷":
                     if (operand2 == 0) {
-                        error=true;
+                       error=true;
                     } else {
                         operand1 /= operand2;
                     }
@@ -186,13 +188,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (!error) {
-            result.setText(operand1.toString());
+            if(operand1%1==0){
+                result.setText(String.format("%.0f",operand1));
+            }
+            else
+                result.setText(String.format("%.3f",operand1));
+
         }
         else {
-            result.setText("ERROR");
+            result.setText("Error");
             operand1=0.0;
         }
         newnum.setText("");
+
+
     }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
