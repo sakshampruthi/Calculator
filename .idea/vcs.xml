@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-<<<<<<<<< Temporary merge branch 1
-    <mapping directory="" vcs="Git" />
-=========
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
->>>>>>>>> Temporary merge branch 2
   </component>
 </project>

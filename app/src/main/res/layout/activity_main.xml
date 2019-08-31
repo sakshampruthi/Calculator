@@ -216,7 +216,7 @@
         android:background="@drawable/buttonshapecolor"
         android:minWidth="80dp"
         android:minHeight="80dp"
-        android:text="x"
+        android:text="*"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/button9"

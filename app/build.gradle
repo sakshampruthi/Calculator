@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.example.calculator"
+        applicationId "com.example.calculatorr"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1

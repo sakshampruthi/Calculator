@@ -152,8 +152,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private void performOperation(Double value, String op) {
         boolean error=false;
         if (null == operand1) {
@@ -175,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                         operand1 /= operand2;
                     }
                     break;
-                case "x":
+                case "*":
                     operand1 *= operand2;
                     break;
                 case "-":
@@ -192,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 result.setText(String.format("%.0f",operand1));
             }
             else
-                result.setText(String.format("%.3f",operand1));
+                result.setText(String.format("%.4f",operand1));
 
         }
         else {
@@ -219,28 +217,3 @@ public class MainActivity extends AppCompatActivity {
         displayOperation.setText(pendingOperation);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
