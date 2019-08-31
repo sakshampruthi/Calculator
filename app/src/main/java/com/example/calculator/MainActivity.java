@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
         Button button7 = findViewById(R.id.button7);
         Button button8 = findViewById(R.id.button8);
         Button button9 = findViewById(R.id.button9);
-        Button buttonac = findViewById(R.id.buttonac);
+        final Button buttonac = findViewById(R.id.buttonac);
         Button buttonneg = findViewById(R.id.buttonneg);
-
         Button buttonpercent = findViewById(R.id.buttonpercent);
         Button buttonDot = findViewById(R.id.buttonDot);
         Button buttonEquals = findViewById(R.id.buttonEquals);
@@ -58,22 +57,55 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener remove = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newnum.setText("");
-                result.setText("");
-                displayOperation.setText("");
-                operand1 = null;
-                operand2 = null;
+                if(newnum.getText().toString().equals("")){
+                    newnum.setText("0");
+                    result.setText("");
+                    displayOperation.setText("");
+                    operand1 = null;
+                    operand2 = null;
+                    buttonac.setText("AC");
+                }
 
-            }
+                    String str=newnum.getText().toString();
+                    if (str.length() >1 ) {
+                        str = str.substring(0, str.length() - 1);
+                        newnum.setText(str);
+                    }
+                    else if (str.length() <=1 ) {
+                        newnum.setText("0");
+                        displayOperation.setText("");
+                        buttonac.setText("AC");
+                    }
+                }
+
+
         };
+        buttonac.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+                    newnum.setText("0");
+                    result.setText("");
+                    displayOperation.setText("");
+                    operand1 = null;
+                    operand2 = null;
+                    buttonac.setText("AC");
+
+                return false;
+            }
+        });
 
         buttonac.setOnClickListener(remove);
 
         View.OnClickListener listener = new View.OnClickListener() { //onclicklistener for
             @Override                                                  // the buttons to enter
-            public void onClick(View view) {                        // no. in new num
+            public void onClick(View view) {// no. in new num
                 Button b = (Button) view;
+                if(newnum.getText().toString().equals("0")){
+                    newnum.setText("");
+                }
                 newnum.append(b.getText().toString()); //adds the clicked num to newnum
+                buttonac.setText("C");
             }
         };
 
