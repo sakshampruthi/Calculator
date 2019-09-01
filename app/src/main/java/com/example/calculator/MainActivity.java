@@ -8,11 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText result;
     private EditText newnum;
     private TextView displayOperation;
+
 
     // variables to hold operations
 
@@ -20,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Double operand2 = null;
     private String pendingOperation = "=";
 
-    private static final String Pendingoperation=null;
-    private static final String Operand1=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         newnum = findViewById(R.id.newnum);
         displayOperation = findViewById(R.id.operation);
+
 
         Button button0 = findViewById(R.id.button0);
         Button button1 = findViewById(R.id.button1);
@@ -154,7 +157,12 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Double doubleValue = Double.valueOf(value);
                         doubleValue *= -1;
-                        newnum.setText(doubleValue.toString());
+                        if(doubleValue%1==0){
+                            newnum.setText(String.format("%.0f",doubleValue));
+                        }
+                        else
+                            newnum.setText(doubleValue.toString());
+
                     } catch(NumberFormatException e) {
                         // newNumber was "-" or ".", so clear it
                         newnum.setText("");
@@ -233,19 +241,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(Pendingoperation,pendingOperation);
-        if(operand1!=null)
-            outState.putDouble(Operand1,operand1);
-        super.onSaveInstanceState(outState);
-    }
 
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        pendingOperation = savedInstanceState.getString(Pendingoperation);
-        operand1=savedInstanceState.getDouble(Operand1);
-        displayOperation.setText(pendingOperation);
-    }
 }
