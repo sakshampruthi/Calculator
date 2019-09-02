@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText result;
     private EditText newnum;
     private TextView displayOperation;
+    private AdView mAdView;
 
 
     // variables to hold operations
@@ -33,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
         newnum = findViewById(R.id.newnum);
         displayOperation = findViewById(R.id.operation);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         Button button0 = findViewById(R.id.button0);
