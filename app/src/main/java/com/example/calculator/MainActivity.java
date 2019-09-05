@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,20 +36,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            getSupportActionBar().hide();
+        }
 
         result = findViewById(R.id.result);
         newnum = findViewById(R.id.newnum);
         displayOperation = findViewById(R.id.operation);
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
+       if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+            MobileAds.initialize(this, new OnInitializationCompleteListener() {
+                @Override
+                public void onInitializationComplete(InitializationStatus initializationStatus) {
+                }
+            });
+
+
+            mAdView = findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+        }
 
 
         Button button0 = findViewById(R.id.button0);
@@ -70,13 +78,88 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMultiply = findViewById(R.id.buttonMultiply);
         Button buttonMinus = findViewById(R.id.buttonMinus);
         Button buttonPlus = findViewById(R.id.buttonAdd);
+        final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
+            @Override
+            public void onClick(View view) {
+                Button b = (Button) view;
+                String op = b.getText().toString();         //
+                String value = newnum.getText().toString(); //gets the no. entered in newnum
+                try {
+                    Double doublevalue = Double.valueOf(value); //check if any no. is entered
+                    performOperation(doublevalue, op);// perform calculation
+                } catch (NumberFormatException e) {
+                    newnum.setText("");
+                }
+
+                pendingOperation = op;
+                if(pendingOperation.equals("x²"))
+                    displayOperation.setText("^");
+                else
+                    displayOperation.setText(pendingOperation);                    // display the operation pressed
+            }
+        };
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Button buttonsquare = findViewById(R.id.buttonsqaure);
+            Button buttonlog = findViewById(R.id.buttonlog);
+            Button buttonln=findViewById(R.id.buttonln);
+            buttonsquare.setOnClickListener(oplistener);
+            buttonlog.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str = newnum.getText().toString();
+                    if (str.equals("0"))
+                        result.setText("Error");
+                    else {
+                        newnum.setText("log₁₀(" + str + ")");
+
+                        System.out.println(str);
+                        Double n = Double.parseDouble(str);
+                        n = Math.log10(n);
+                        displayOperation.setText("=");
+//
+                        if (n % 1 == 0) {
+                            result.setText(String.format("%.0f", n));
+                        } else
+                            result.setText(String.format("%.4f", n));
+
+                    }
+                    buttonac.setText("C");
+                }
+            });
+            buttonln.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str = newnum.getText().toString();
+                    if (str.equals("0"))
+                        result.setText("Error");
+                    else {
+                        newnum.setText("log(" + str + ")");
+
+                        System.out.println(str);
+                        Double n = Double.parseDouble(str);
+                        n = Math.log(n);
+                        displayOperation.setText("=");
+//
+                        if (n % 1 == 0) {
+                            result.setText(String.format("%.0f", n));
+                        } else
+                            result.setText(String.format("%.4f", n));
+
+                    }
+                    buttonac.setText("C");
+                }
+            });
+
+
+        }
+
         newnum.setEnabled(false);
         result.setEnabled(false);
 
         View.OnClickListener remove = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(newnum.getText().toString().equals("")){
+                if(newnum.getText().toString().equals("") || result.getText().toString().equals("Error")){
                     newnum.setText("0");
                     result.setText("");
                     displayOperation.setText("");
@@ -140,28 +223,56 @@ public class MainActivity extends AppCompatActivity {
         button9.setOnClickListener(listener);
         buttonDot.setOnClickListener(listener);
 
-        final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
-            @Override
-            public void onClick(View view) {
-                Button b = (Button) view;
-                String op = b.getText().toString();         //
-                String value = newnum.getText().toString(); //gets the no. entered in newnum
-                try {
-                    Double doublevalue = Double.valueOf(value); //check if any no. is entered
-                    performOperation(doublevalue, op);// perform calculation
-                } catch (NumberFormatException e) {
-                    newnum.setText("");
-                }
-
-                pendingOperation = op;
-                displayOperation.setText(pendingOperation);                    // display the operation pressed
-            }
-        };
+//        final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
+//            @Override
+//            public void onClick(View view) {
+//                Button b = (Button) view;
+//                String op = b.getText().toString();         //
+//                String value = newnum.getText().toString(); //gets the no. entered in newnum
+//                try {
+//                    Double doublevalue = Double.valueOf(value); //check if any no. is entered
+//                    performOperation(doublevalue, op);// perform calculation
+//                } catch (NumberFormatException e) {
+//                    newnum.setText("");
+//                }
+//
+//                pendingOperation = op;
+//                if(pendingOperation.equals("x²"))
+//                    displayOperation.setText("^");
+//                else
+//                    displayOperation.setText(pendingOperation);                    // display the operation pressed
+//            }
+//        };
         buttonEquals.setOnClickListener(oplistener);
         buttonDivide.setOnClickListener(oplistener);
         buttonMinus.setOnClickListener(oplistener);
         buttonMultiply.setOnClickListener(oplistener);
         buttonPlus.setOnClickListener(oplistener);
+
+
+//        buttonsquare.setOnClickListener(oplistener);
+//        buttonlog.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String str = newnum.getText().toString();
+//                if (str.equals("0"))
+//                    result.setText("Error");
+//                else {
+//                    newnum.setText("Log₁₀(" + str + ")");
+//
+//                    System.out.println(str);
+//                    Double n = Double.parseDouble(str);
+//                    n = Math.log10(n);
+//                    displayOperation.setText("=");
+////
+//                    if (n % 1 == 0) {
+//                        result.setText(String.format("%.0f", n));
+//                    } else
+//                        result.setText(String.format("%.4f", n));
+//
+//                }
+//            }
+//        });
 
         buttonneg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
                         operand1 /= operand2;
                     }
                     break;
-                case "*":
+                case "x":
                     operand1 *= operand2;
                     break;
                 case "-":
@@ -238,6 +349,11 @@ public class MainActivity extends AppCompatActivity {
                 case "+":
                     operand1 += operand2;
                     break;
+
+                case "x²":
+                    operand1=Math.pow(operand1,operand2);
+                    break;
+
 
             }
         }
