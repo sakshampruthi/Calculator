@@ -56,17 +56,15 @@
         android:layout_width="65dp"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
         android:background="@drawable/buttonshape"
         android:minWidth="80dp"
         android:minHeight="80dp"
         android:text="1"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonln"
         app:layout_constraintEnd_toEndOf="@+id/button4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintStart_toEndOf="@+id/buttonln" />
 
     <Button
         android:id="@+id/button2"
@@ -108,7 +106,7 @@
         android:text="4"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonln"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonlog"
         app:layout_constraintEnd_toEndOf="@+id/button7"
         app:layout_constraintStart_toEndOf="@+id/buttonln" />
 
@@ -153,8 +151,8 @@
         android:text="7"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonlog"
-        app:layout_constraintStart_toEndOf="@+id/buttonlog" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttoncube"
+        app:layout_constraintStart_toEndOf="@+id/buttoncube" />
 
     <Button
         android:id="@+id/button8"
@@ -286,6 +284,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/newnum"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toStartOf="@+id/guideline4" />
 
     <EditText
@@ -379,17 +378,36 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/buttonrest"
         android:minWidth="80dp"
         android:minHeight="80dp"
         android:text="x²"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/result" />
+        app:layout_constraintTop_toBottomOf="@+id/result"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttoncube"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/buttonrest"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="x³"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsqaure" />
 
     <Button
         android:id="@+id/buttonlog"
@@ -405,8 +423,9 @@
         android:textSize="18sp"
         android:theme="@style/MyButton"
         app:layout_constraintEnd_toEndOf="@+id/buttonsqaure"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/buttonsqaure" />
+        app:layout_constraintTop_toBottomOf="@+id/buttoncube" />
 
     <Button
         android:id="@+id/buttonln"
@@ -418,12 +437,32 @@
         android:minWidth="80dp"
         android:minHeight="80dp"
         android:text="ln"
-        android:textColor="#FFFFFF"
 
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:theme="@style/MyButton"
+        app:layout_constraintEnd_toEndOf="@+id/buttonlog"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/buttonlog" />
+
+    <Button
+        android:id="@+id/buttonpi"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonrest"
+
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="π"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:theme="@style/MyButton"
+        app:layout_constraintEnd_toStartOf="@+id/button0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonln" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

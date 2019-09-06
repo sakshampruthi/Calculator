@@ -15,6 +15,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.nio.file.FileVisitOption;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -102,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
             Button buttonsquare = findViewById(R.id.buttonsqaure);
             Button buttonlog = findViewById(R.id.buttonlog);
             Button buttonln=findViewById(R.id.buttonln);
-            buttonsquare.setOnClickListener(oplistener);
+            Button buttonpi=findViewById(R.id.buttonpi);
+            Button buttoncube= findViewById(R.id.buttoncube);
             buttonlog.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -149,6 +152,56 @@ public class MainActivity extends AppCompatActivity {
                     buttonac.setText("C");
                 }
             });
+            buttonpi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    newnum.setText("3.14159265359");
+
+                }
+            });
+
+            buttonsquare.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str = newnum.getText().toString();
+                    System.out.println(str);
+
+                    Double n = Double.parseDouble(str);
+                    n = Math.pow(n,2);
+                    newnum.setText(str+"²");
+                    displayOperation.setText("=");
+//
+                    if (n % 1 == 0) {
+                        result.setText(String.format("%.0f", n));
+                    } else
+                        result.setText(String.format("%.4f", n));
+
+
+                    buttonac.setText("C");
+
+                }
+            });
+            buttoncube.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str = newnum.getText().toString();
+                    System.out.println(str);
+                    newnum.setText(str+"³");
+                    Double n = Double.parseDouble(str);
+                    n = Math.pow(n,3);
+
+                    displayOperation.setText("=");
+//
+                    if (n % 1 == 0) {
+                        result.setText(String.format("%.0f", n));
+                    } else
+                        result.setText(String.format("%.4f", n));
+
+
+                    buttonac.setText("C");
+                }
+            });
+
 
 
         }
@@ -350,8 +403,8 @@ public class MainActivity extends AppCompatActivity {
                     operand1 += operand2;
                     break;
 
-                case "x²":
-                    operand1=Math.pow(operand1,operand2);
+                case "xʸ":
+                    operand1=Math.pow(operand1,2);
                     break;
 
 
