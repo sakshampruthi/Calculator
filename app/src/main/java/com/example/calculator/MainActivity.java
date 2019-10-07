@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMinus = findViewById(R.id.buttonMinus);
         Button buttonPlus = findViewById(R.id.buttonAdd);
         Button buttonpower = findViewById(R.id.buttonpower );
+        Button buttone = findViewById(R.id.buttone);
         final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
             @Override
             public void onClick(View view) {
@@ -204,6 +205,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
             buttonpower.setOnClickListener(oplistener);
+
+            buttone.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+//                    String str = newnum.getText().toString();
+                    newnum.setText("2.71828");
+
+                }
+            });
 
 
 

@@ -484,6 +484,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newnum" />
 
+    <Button
+        android:id="@+id/buttone"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="4dp"
+
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/buttonrest"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="e"
+        android:theme="@style/MyButton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonpower" />
+
 
 
 
