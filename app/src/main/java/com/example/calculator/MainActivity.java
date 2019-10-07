@@ -15,7 +15,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import java.nio.file.FileVisitOption;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMultiply = findViewById(R.id.buttonMultiply);
         Button buttonMinus = findViewById(R.id.buttonMinus);
         Button buttonPlus = findViewById(R.id.buttonAdd);
+        Button buttonpower = findViewById(R.id.buttonpower );
         final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
             @Override
             public void onClick(View view) {
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 pendingOperation = op;
-                if(pendingOperation.equals("x²"))
+                if(pendingOperation.equals("xʸ"))
                     displayOperation.setText("^");
                 else
                     displayOperation.setText(pendingOperation);                    // display the operation pressed
@@ -170,7 +170,9 @@ public class MainActivity extends AppCompatActivity {
                     n = Math.pow(n,2);
                     newnum.setText(str+"²");
                     displayOperation.setText("=");
-//
+
+
+
                     if (n % 1 == 0) {
                         result.setText(String.format("%.0f", n));
                     } else
@@ -201,6 +203,8 @@ public class MainActivity extends AppCompatActivity {
                     buttonac.setText("C");
                 }
             });
+            buttonpower.setOnClickListener(oplistener);
+
 
 
 
@@ -301,6 +305,7 @@ public class MainActivity extends AppCompatActivity {
         buttonMinus.setOnClickListener(oplistener);
         buttonMultiply.setOnClickListener(oplistener);
         buttonPlus.setOnClickListener(oplistener);
+
 
 
 //        buttonsquare.setOnClickListener(oplistener);
@@ -404,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case "xʸ":
-                    operand1=Math.pow(operand1,2);
+                    operand1=Math.pow(operand1,operand2);
                     break;
 
 
