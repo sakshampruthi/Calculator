@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonPlus = findViewById(R.id.buttonAdd);
         Button buttonpower = findViewById(R.id.buttonpower );
         Button buttone = findViewById(R.id.buttone);
+        Button buttonroot = findViewById(R.id.buttonroot);
         final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
             @Override
             public void onClick(View view) {
@@ -172,8 +173,6 @@ public class MainActivity extends AppCompatActivity {
                     newnum.setText(str+"²");
                     displayOperation.setText("=");
 
-
-
                     if (n % 1 == 0) {
                         result.setText(String.format("%.0f", n));
                     } else
@@ -215,9 +214,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            buttonroot.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String str = newnum.getText().toString();
+
+                    Double n = Double.parseDouble(str);
+                    n = Math.sqrt(n);
+
+                    newnum.setText("√"+str);
+                    displayOperation.setText("=");
+
+                    if (n % 1 == 0) {
+                        result.setText(String.format("%.0f", n));
+                    } else
+                        result.setText(String.format("%.4f", n));
 
 
-
+                    buttonac.setText("C");
+                }
+            });
         }
 
         newnum.setEnabled(false);
