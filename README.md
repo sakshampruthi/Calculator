@@ -1,2 +1,2 @@
 # Calculator
-Its a basic calculator build using android studio in java
+Calculator with advanced fuction with Interface similar to apple's calculator
