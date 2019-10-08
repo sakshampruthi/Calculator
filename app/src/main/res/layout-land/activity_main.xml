@@ -534,4 +534,51 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/buttonroot" />
 
+    <Button
+        android:id="@+id/buttonsin"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonrest"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="sin"
+        android:theme="@style/MyButton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonpower"
+        app:layout_constraintTop_toBottomOf="@+id/newnum" />
+    <Button
+        android:id="@+id/buttoncos"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonrest"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="cos"
+        android:theme="@style/MyButton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttone"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsin" />
+    <Button
+        android:id="@+id/buttontan"
+        android:layout_width="65dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/buttonrest"
+        android:minWidth="80dp"
+        android:minHeight="80dp"
+        android:text="tan"
+        android:theme="@style/MyButton"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonroot"
+        app:layout_constraintTop_toBottomOf="@+id/buttoncos" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
