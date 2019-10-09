@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         Button buttone = findViewById(R.id.buttone);
         Button buttonroot = findViewById(R.id.buttonroot);
         Button buttoncuberoot = findViewById(R.id.buttoncuberoot);
+        Button buttonsin = findViewById(R.id.buttonsin);
+        Button buttoncos = findViewById(R.id.buttoncos);
+        Button buttontan = findViewById(R.id.buttontan);
+
         final View.OnClickListener oplistener = new View.OnClickListener() { //listener for the operations
             @Override
             public void onClick(View view) {
@@ -257,8 +261,26 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            buttonsin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    newnum.setText("sin(");
+                }
+            });
 
+            buttoncos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    newnum.setText("cos(");
+                }
+            });
 
+            buttontan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    newnum.setText("tan(");
+                }
+            });
         }
 
         newnum.setEnabled(false);
@@ -462,6 +484,9 @@ public class MainActivity extends AppCompatActivity {
                 case "xʸ":
                     operand1=Math.pow(operand1,operand2);
                     break;
+
+                case "sin":
+
 
 
             }
