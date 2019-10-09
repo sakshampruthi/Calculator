@@ -20,7 +20,7 @@
         android:focusableInTouchMode="false"
         android:inputType="numberSigned|numberDecimal"
         android:textAlignment="textEnd"
-        android:textColor="#FFFFFF"
+        android:textColor="#f2e9e9"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/newnum"
         app:layout_constraintEnd_toEndOf="parent"
